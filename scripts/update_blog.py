@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh the "From the blog" list in index.html.
-
-Rewrites the marker-delimited region in place:
-
-  <!-- BLOG-POSTS:START -->  ...  <!-- BLOG-POSTS:END -->
-
-with the most recent posts from the Ghost RSS feed at drumandbytes.com/rss/.
-
-Standard library only. Run from the repository root.
-"""
+"""Refresh the BLOG-POSTS block in index.html from the drumandbytes.com RSS feed. Run from repo root."""
 
 from __future__ import annotations
 
@@ -53,8 +44,6 @@ def build_blog_block() -> str:
             raise RuntimeError(f"RSS item missing title/link: {title!r} {link!r}")
         pub = (item.findtext("pubDate") or "").strip()
         try:
-            # RSS pubDate is an RFC 2822 date; parsedate_to_datetime returns
-            # a timezone-aware datetime.
             stamp = f"{parsedate_to_datetime(pub):%Y-%m}"
         except (TypeError, ValueError):
             stamp = ""
