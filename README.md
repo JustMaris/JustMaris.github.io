@@ -17,7 +17,7 @@ redeploys. Custom domain via `CNAME`.
 The "From the blog" section is kept between `<!-- BLOG-POSTS:START -->` and
 `<!-- BLOG-POSTS:END -->` markers in `index.html`. `.github/workflows/update-blog.yml`
 runs `scripts/update_blog.py` daily to refresh it from the
-[drumandbytes.com](https://drumandbytes.com/) RSS feed and commits any change back
+[drumandbytes.com](https://drumandbytes.com/?ref=justmaris-site-readme) RSS feed and commits any change back
 to `master`. Run it by hand from the Actions tab, or:
 
 ```
